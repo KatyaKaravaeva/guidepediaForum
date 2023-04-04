@@ -1,0 +1,10 @@
+export const ROOT = "/";
+export const AUTHORIZATION = "/sign_in";
+export const REGISTRATION = "/sign_up";
+export const PROFILE = "/profile";
+export const CATEGORIES = "/categories";
+export const USER_POSTS = "/user_posts";
+export const BOOKMARKS = "/bookmarks";
+export const CREATE_ARTICLE = "/create_article";
+export const ARTICLE = "/article";
+export const COMMENTS = "/comments";

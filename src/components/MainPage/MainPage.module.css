@@ -1,0 +1,100 @@
+.articleBox {
+  width: 548px;
+  height: 100px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #008cba;
+  border-radius: 10px;
+  color: #008cba;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  background-color: #f0f8ff;
+  box-shadow: 2px 2px 5px #bebebe;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.articleBox:hover {
+  background-color: #008cba;
+  color: #f0f8ff;
+}
+
+.article__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.article__loading h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.articleBoxButtons {
+  display: flex;
+  align-items: center;
+}
+
+.articleButton {
+  margin-left: 18px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.articleButton:hover {
+  transform: scale(1.1);
+}
+
+.commentIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.bookmarkIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.change_articles_button {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+/* Стили для контейнера */
+.change_articles_button {
+  display: flex;
+  justify-content: flex-end; /* Сдвигаем кнопку вправо */
+  align-items: center;
+  padding: 1rem;
+  background-color: #a0f1ff6c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для кнопки */
+.subscribe_articles_button {
+  display: inline-block;
+  background-color: #8383ff;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem 3rem; /* Увеличиваем длину кнопки */
+  border-radius: 50px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Добавляем эффекты при наведении */
+.subscribe_articles_button:hover {
+  background-color: #5c00d4a8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

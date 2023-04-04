@@ -1,0 +1,91 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #def3fd;
+  padding: 20px;
+}
+
+.profile__frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #1c4e80;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.profile__picture {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile__name {
+  margin: 10px 0 0;
+  color: #1c4e80;
+}
+
+.profile__about {
+  margin: 10px 0 0;
+  color: #1c4e80;
+}
+
+.profile__info {
+  margin-top: 20px;
+  border: 2px solid #1c4e80;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__title {
+  margin: 0 0 10px;
+  color: #1c4e80;
+}
+
+.profile__text {
+  margin: 0 0 10px;
+  color: #1c4e80;
+}
+
+.profile__input {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 2px solid #1c4e80;
+  border-radius: 5px;
+  color: #1c4e80;
+  font-size: 16px;
+  width: 100%;
+}
+
+.profile__input:focus {
+  outline: none;
+  border-color: #0b2a4d;
+}
+
+.profile__input::placeholder {
+  color: #a2b9d4;
+}
+
+.profile__button {
+  margin-top: 20px;
+  background-color: #1c4e80;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile__button:hover {
+  background-color: #0b2a4d;
+}
+
+.profile__label {
+  margin-bottom: 4px;
+}
