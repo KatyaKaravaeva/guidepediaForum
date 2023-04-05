@@ -16,6 +16,9 @@ const ArticleView = ({
   isBookMark,
   setBookMark,
   makeBookmark,
+  isSubscribe,
+  subscribeToUser,
+  changeSubscribe,
 }) => {
   if (articleQuery.isLoading || articleQuery.isRefetching) {
     return (
@@ -36,9 +39,14 @@ const ArticleView = ({
             </div>
             <div className={styles.user_info}>
               <h3 className={styles.user_name}>
-                {articleQuery.data.users.login}
+                {articleQuery.data.users.username}
               </h3>
-              <button className={styles.subscribe_btn}>Подписаться</button>
+              <button
+                className={styles.subscribe_btn}
+                onClick={() => changeSubscribe()}
+              >
+                {isSubscribe ? "Отписаться" : "Подписаться"}
+              </button>
             </div>
           </div>
           <div className={styles.article_wrapper}>

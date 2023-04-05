@@ -6,6 +6,7 @@ import { useState } from "react";
 export const MainPageContainer = () => {
   const [isSubscribe, setIsSubscribe] = useState(false);
   const [articles, setArticles] = useState([]);
+  const [isBookMark, setBookMark] = useState(false);
   const mainPageQuery = useQuery(
     ["mainPageData"],
     async () => {
@@ -13,6 +14,8 @@ export const MainPageContainer = () => {
         `${process.env.REACT_APP_URL}/article`
       );
       setArticles(() => [...data]);
+      setBookMark(() => data[0].status); //ToDo change 0
+      console.log("data --", data[0].status);
       return data;
     },
     {
@@ -21,13 +24,27 @@ export const MainPageContainer = () => {
     }
   );
 
+  async function makeBookmark(articleId) {
+    try {
+      const { data } = await $authHost.put(
+        `${process.env.REACT_APP_URL}/user/save/article/${articleId}`,
+        {
+          status: !isBookMark,
+        }
+      );
+      setBookMark((prev) => !prev);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     const target = event.target;
     try {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}${
-          isSubscribe ? "/user/subscribtion/article" : "/article"
+          !isSubscribe ? "/user/subscribtion/article" : "/article"
         }`
       );
       setArticles(() => [...data]);
@@ -56,6 +73,9 @@ export const MainPageContainer = () => {
       mainPageQuery={mainPageQuery}
       isSubscribe={isSubscribe}
       setIsSubscribe={setIsSubscribe}
+      isBookMark={isBookMark}
+      setBookMark={setBookMark}
+      makeBookmark={makeBookmark}
     />
   );
 };

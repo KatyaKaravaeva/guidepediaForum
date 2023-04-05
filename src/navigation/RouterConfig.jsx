@@ -11,7 +11,7 @@ import Bookmarks from "../components/Bookmarks";
 import CreateArticle from "../components/CreateArticle";
 import Article from "../components/Article";
 import CategoryArticles from "../components/CategoryArticles";
-//import Comments from "../components/CategoryArticles";
+
 import {
   ROOT,
   AUTHORIZATION,

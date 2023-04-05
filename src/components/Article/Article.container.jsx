@@ -7,11 +7,13 @@ import { useState } from "react";
 export const ArticleContainer = () => {
   const { id } = useParams();
   const [isLike, setLike] = useState(false);
+  const [userID, setUserID] = useState();
   const [searchParams, setSearchParams] = useSearchParams();
   const [commentsShow, setCommentsShow] = useState(
     searchParams.get("comments") === "true" ? true : false
   );
   const [isBookMark, setBookMark] = useState(false);
+  const [isSubscribe, subscribeToUser] = useState(false);
 
   const commentsQuery = useQuery(
     ["commentsData"],
@@ -19,7 +21,7 @@ export const ArticleContainer = () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/user/article/${id}/comment`
       );
-      return [data];
+      return data;
     },
     {
       retry: false,
@@ -36,6 +38,14 @@ export const ArticleContainer = () => {
         isLike,
       }
     );
+  }
+
+  async function changeSubscribe() {
+    subscribeToUser((prev) => !prev);
+    const { data } = await $authHost.post(
+      `${process.env.REACT_APP_URL}/user/subscribtion/${userID}`
+    );
+    console.log(data);
   }
 
   async function makeBookmark() {
@@ -63,6 +73,8 @@ export const ArticleContainer = () => {
         data.likes -= 1;
       }
       setBookMark(() => data.status);
+      setUserID(() => data.users.userId);
+      //console.log("1" + author);
       // console.log("id " + id);
       // console.log(data);
       return data;
@@ -98,6 +110,9 @@ export const ArticleContainer = () => {
       isBookMark={isBookMark}
       setBookMark={setBookMark}
       makeBookmark={makeBookmark}
+      isSubscribe={isSubscribe}
+      subscribeToUser={subscribeToUser}
+      changeSubscribe={changeSubscribe}
     />
   );
 };

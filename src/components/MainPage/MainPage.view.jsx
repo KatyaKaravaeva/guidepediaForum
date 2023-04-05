@@ -3,6 +3,8 @@ import styles from "../../assets/styles/articleList.module.css";
 import style from "./MainPage.module.css";
 import CommentsIcon from "../../assets/images/comments_icon.svg";
 import BookMarkIcon from "../../assets/images/bookmarks_img.svg";
+import BookMarkAdd from "../../assets/images/bookmark_add.svg";
+import BookMarkAdded from "../../assets/images/bookmark_added.svg";
 
 const MainPageView = ({
   handleSubmit,
@@ -11,6 +13,9 @@ const MainPageView = ({
   mainPageSubscribeQuery,
   isSubscribe,
   setIsSubscribe,
+  isBookMark,
+  setBookMark,
+  makeBookmark = { makeBookmark },
 }) => {
   if (mainPageQuery.isLoading || mainPageQuery.isRefetching) {
     return (
@@ -21,7 +26,6 @@ const MainPageView = ({
       </>
     );
   }
- // console.log(articles);
   return (
     <div className="container">
       <div className={style.change_articles_button}>
@@ -56,9 +60,15 @@ const MainPageView = ({
               </Link>
               <button
                 className={style.articleButton}
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.preventDefault();
+                  makeBookmark(article.articleId);
+                }}
               >
-                <img className={style.bookmarkIcon} src={BookMarkIcon} />
+                <img
+                  className={style.bookmarkIcon}
+                  src={isBookMark ? BookMarkAdded : BookMarkAdd}
+                />
               </button>
             </div>
           </div>
