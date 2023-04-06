@@ -8,3 +8,4 @@ export const BOOKMARKS = "/bookmarks";
 export const CREATE_ARTICLE = "/create_article";
 export const ARTICLE = "/article";
 export const COMMENTS = "/comments";
+export const PERSONAL_ACCOUNT = "/personal_account";

@@ -2,8 +2,8 @@ import styles from "./Article.module.css";
 import UserLogo from "../../assets/images/user_logo.svg";
 import BlackLike from "../../assets/images/heart.png";
 import RedLike from "../../assets/images/heart_red.png";
-import { COMMENTS } from "../../navigation/routes";
 import CommentsList from "./CommentsList";
+import { NavLink } from "react-router-dom";
 
 const ArticleView = ({
   commentsQuery,
@@ -35,7 +35,16 @@ const ArticleView = ({
         <div className={styles.user_profile}>
           <div className={styles.user_header}>
             <div className={styles.avatar_wrapper}>
-              <img src={UserLogo} alt="user_avatar" className={styles.avatar} />
+              <NavLink
+                to={`/personal_account/${articleQuery.data.users.userId}`}
+                className={styles.header__nav_link}
+              >
+                <img
+                  src={UserLogo}
+                  alt="user_avatar"
+                  className={styles.avatar}
+                />
+              </NavLink>
             </div>
             <div className={styles.user_info}>
               <h3 className={styles.user_name}>
@@ -80,7 +89,6 @@ const ArticleView = ({
                       src={isLike ? RedLike : BlackLike}
                     />
                   </button>
-                  {/* <span className={styles.heart_count}>{}</span> */}
                   <span className={styles.heart_count__span}>
                     {likesQuery.data + (isLike ? 1 : 0)}
                   </span>

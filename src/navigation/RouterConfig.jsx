@@ -11,6 +11,7 @@ import Bookmarks from "../components/Bookmarks";
 import CreateArticle from "../components/CreateArticle";
 import Article from "../components/Article";
 import CategoryArticles from "../components/CategoryArticles";
+import PersonalAccount from "../components/PersonalAccount";
 
 import {
   ROOT,
@@ -22,7 +23,7 @@ import {
   BOOKMARKS,
   CREATE_ARTICLE,
   ARTICLE,
-  COMMENTS,
+  PERSONAL_ACCOUNT,
 } from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
@@ -113,14 +114,14 @@ const RouterConfig = () => {
         }
       />
 
-      {/* <Route
-        path={`${COMMENTS}`}
+      <Route
+        path={`${PERSONAL_ACCOUNT}/:id`}
         element={
           <RequiredAuth>
-            <Comments />
+            <PersonalAccount />
           </RequiredAuth>
         }
-      />*/}
+      />
     </Routes>
   );
 };
