@@ -13,8 +13,6 @@ const MainPageView = ({
   mainPageSubscribeQuery,
   isSubscribe,
   setIsSubscribe,
-  isBookMark,
-  setBookMark,
   makeBookmark = { makeBookmark },
 }) => {
   if (mainPageQuery.isLoading || mainPageQuery.isRefetching) {
@@ -62,12 +60,12 @@ const MainPageView = ({
                 className={style.articleButton}
                 onClick={(e) => {
                   e.preventDefault();
-                  makeBookmark(article.articleId);
+                  makeBookmark(article);
                 }}
               >
                 <img
                   className={style.bookmarkIcon}
-                  src={isBookMark ? BookMarkAdded : BookMarkAdd}
+                  src={article.status ? BookMarkAdded : BookMarkAdd}
                 />
               </button>
             </div>
