@@ -11,7 +11,7 @@ const PersonalAccountView = ({ personalAccountQuery }) => {
           alt="Profile Picture"
         />
         <h2 className={styles.profile__name}>
-          {personalAccountQuery.data.username}
+          {"personalAccountQuery.data.username"}
         </h2>
       </div>
       <div className={styles.profile__info}>
@@ -21,7 +21,7 @@ const PersonalAccountView = ({ personalAccountQuery }) => {
           type="text"
           placeholder="Введите имя пользователя"
           disabled={true}
-          value={personalAccountQuery.data.username}
+          value={"personalAccountQuery.data.username"}
         />
         <label className={styles.profile__label}>Реквизиты</label>
         <input
@@ -29,7 +29,7 @@ const PersonalAccountView = ({ personalAccountQuery }) => {
           type="text"
           placeholder="Введите реквизиты"
           disabled={true}
-          value={personalAccountQuery.data.cardDetails}
+          value={"personalAccountQuery.data.cardDetails"}
         />
         <label className={styles.profile__label}>О себе</label>
         <input
@@ -37,7 +37,7 @@ const PersonalAccountView = ({ personalAccountQuery }) => {
           type="text"
           placeholder="Расскажите немного о себе"
           disabled={true}
-          value={personalAccountQuery.data.profile}
+          value={"personalAccountQuery.data.profile"}
         />
       </div>
     </form>
