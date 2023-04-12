@@ -8,6 +8,10 @@ export const CommentsListContainer = ({ comments }) => {
   const newCommentRef = useRef();
   async function createComment(event) {
     if (!newCommentRef.current) return;
+    if (!newCommentRef.current.value){
+      alert("Комментарий не может быть пустым!")
+      return;
+    }
     const { data } = await $authHost.post(
       `${process.env.REACT_APP_URL}/user/article/${id}/comment`,
       {
@@ -15,8 +19,8 @@ export const CommentsListContainer = ({ comments }) => {
         text: newCommentRef.current.value,
       }
     );
+    newCommentRef.current.value = "";
   }
-  //console.log("comments", comments);
   return (
     <CommentsListView
       comments={comments}

@@ -9,16 +9,6 @@ export const CategoriesContainer = () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/article/category`
       );
-      // const data = [
-      //   {
-      //     categoryId: 1,
-      //     name: "string",
-      //   },
-      //   {
-      //     categoryId: 2,
-      //     name: "string",
-      //   },
-      // ];
       return data;
     },
     {

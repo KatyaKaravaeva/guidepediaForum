@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import UserLogo from "../../assets/images/user_logo.svg";
 import CategoryLogo from "../../assets/images/category_img.svg";
 import CreateArticleLogo from "../../assets/images/create_article_img.svg";
@@ -16,8 +16,10 @@ import {
 } from "../../navigation/routes";
 import { useSelector } from "react-redux";
 
-const HeaderView = () => {
+const HeaderView = ({exit}) => {
   const { user } = useSelector((state) => state);
+  const location = useLocation();
+  console.log(location);
   return (
     <>
       <header className={styles.header}>
@@ -65,14 +67,9 @@ const HeaderView = () => {
                   </li>
                 </ul>
               </nav>
-              <div className={styles.header__search}>
-                <span className={styles.header__search_icon}></span>
-                <input
-                  className={styles.header__search_field}
-                  type="text"
-                  placeholder="search"
-                />
-              </div>
+
+              <button onClick={()=> exit()}>exit</button>
+           
             </>
           ) : null}
         </div>

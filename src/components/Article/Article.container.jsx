@@ -8,7 +8,7 @@ export const ArticleContainer = () => {
   const { id } = useParams();
   const [isLike, setLike] = useState(false);
   const [userID, setUserID] = useState();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams(); 
   const [commentsShow, setCommentsShow] = useState(
     searchParams.get("comments") === "true" ? true : false
   );
@@ -32,29 +32,24 @@ export const ArticleContainer = () => {
   async function changeLike() {
     setLike((prev) => !prev);
     const { data } = await $authHost.post(
-      `${process.env.REACT_APP_URL}/user/article/reaction`,
-      {
-        id,
-        isLike,
-      }
+      `${process.env.REACT_APP_URL}/user/article/${id}/reaction?reaction=${isLike}`
     );
   }
 
   async function changeSubscribe() {
     subscribeToUser((prev) => !prev);
     const { data } = await $authHost.post(
-      `${process.env.REACT_APP_URL}/user/subscribtion/${userID}`
+      `${process.env.REACT_APP_URL}/user/subscribtion/${userID}?status=${isSubscribe}`
     );
     console.log(data);
   }
 
   async function makeBookmark() {
     try {
-      const { data } = await $authHost.put(
-        `${process.env.REACT_APP_URL}/user/save/article/${id}`,
-        {
-          status: !isBookMark,
-        }
+      const { data } = await $authHost.post(
+        `${
+          process.env.REACT_APP_URL
+        }/user/save/article/${id}?status=${!isBookMark}`
       );
       setBookMark((prev) => !prev);
     } catch (error) {
@@ -68,15 +63,13 @@ export const ArticleContainer = () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/user/article/${id}`
       );
-      if (data.user_likes) {
+
+      if (data.statusLike) {
         setLike(() => true);
         data.likes -= 1;
       }
       setBookMark(() => data.status);
       setUserID(() => data.users.userId);
-      //console.log("1" + author);
-      // console.log("id " + id);
-      // console.log(data);
       return data;
     },
     {

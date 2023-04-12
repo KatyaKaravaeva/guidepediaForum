@@ -2,18 +2,34 @@ import { useQuery } from "react-query";
 import MainPageView from "./MainPage.view";
 import { $authHost } from "../../services/api.service";
 import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { ROOT } from "../../navigation/routes";
 
 export const MainPageContainer = () => {
+  const [paramSearch, setParamSearch] = useSearchParams();
+  // console.log(paramSearch.get("line"));
   const [isSubscribe, setIsSubscribe] = useState(false);
   const [articles, setArticles] = useState([]);
+  const queryLine = paramSearch.get("line");
+  const navigate = useNavigate();
+  function searchData(event) {
+    event.preventDefault();
+    navigate(`${ROOT}?line=${event.target.search.value}`);
+    event.target.search.value = "";
+  }
+
   const mainPageQuery = useQuery(
-    ["mainPageData"],
+    ["mainPageData", queryLine],
     async () => {
       const { data } = await $authHost.get(
-        `${process.env.REACT_APP_URL}/article`
+        `${process.env.REACT_APP_URL}/article${
+          queryLine ? `/search?line=${queryLine}` : ""
+        }`
       );
+      // if (queryLine) {
+      //   setIsSubscribe(() => true);
+      // }
       setArticles(() => [...data]);
-      console.log("data --", data[0].status);
       return data;
     },
     {
@@ -24,16 +40,17 @@ export const MainPageContainer = () => {
 
   async function makeBookmark(article) {
     try {
-      const { data } = await $authHost.put(
-        `${process.env.REACT_APP_URL}/user/save/article/${article.articleId}`,
-        {
-          status: articles.find((x) => x.articleId === article.articleId)
-            .status,
-        }
+      const statusBookmark = articles.find(
+        (x) => x.articleId === article.articleId
+      ).status;
+      const { data } = await $authHost.post(
+        `${process.env.REACT_APP_URL}/user/save/article/${
+          article.articleId
+        }?status=${!statusBookmark}`
       );
       setArticles((prev) =>
         prev.map((x) => {
-          if (article.articleId !== x.articleId) return article;
+          if (article.articleId !== x.articleId) return x;
           x.status = !x.status;
           return x;
         })
@@ -66,6 +83,8 @@ export const MainPageContainer = () => {
       isSubscribe={isSubscribe}
       setIsSubscribe={setIsSubscribe}
       makeBookmark={makeBookmark}
+      queryLine={queryLine}
+      searchData={searchData}
     />
   );
 };

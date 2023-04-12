@@ -5,6 +5,7 @@ import CommentsIcon from "../../assets/images/comments_icon.svg";
 import BookMarkIcon from "../../assets/images/bookmarks_img.svg";
 import BookMarkAdd from "../../assets/images/bookmark_add.svg";
 import BookMarkAdded from "../../assets/images/bookmark_added.svg";
+import { ROOT } from "../../navigation/routes";
 
 const MainPageView = ({
   handleSubmit,
@@ -13,7 +14,9 @@ const MainPageView = ({
   mainPageSubscribeQuery,
   isSubscribe,
   setIsSubscribe,
-  makeBookmark = { makeBookmark },
+  makeBookmark,
+  queryLine,
+  searchData,
 }) => {
   if (mainPageQuery.isLoading || mainPageQuery.isRefetching) {
     return (
@@ -26,6 +29,19 @@ const MainPageView = ({
   }
   return (
     <div className="container">
+      {!isSubscribe ? (
+        <form className={styles.header__search} onSubmit={(e) => searchData(e)}>
+          <button className={styles.header__search_icon} type="submit"></button>
+          <input
+            className={styles.header__search_field}
+            name="search"
+            type="text"
+            placeholder="search"
+          />
+        </form>
+      ) : (
+        ""
+      )}
       <div className={style.change_articles_button}>
         <button
           className={style.subscribe_articles_button}
@@ -38,9 +54,9 @@ const MainPageView = ({
         </button>
       </div>
 
-      {articles.map((article) => (
+      {articles.map((article, index) => (
         <Link
-          key={article.articleId}
+          key={index}
           to={`/article/${article.articleId}`}
           className={styles.articleLink}
         >

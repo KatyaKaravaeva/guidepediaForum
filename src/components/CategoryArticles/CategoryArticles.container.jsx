@@ -11,8 +11,6 @@ export const CategoryArticlesContainer = () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/user/article/category/${id}`
       );
-      // console.log("id " + id);
-      // console.log(data);
       return data;
     },
     {

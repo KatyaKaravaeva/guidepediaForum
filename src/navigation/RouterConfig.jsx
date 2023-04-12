@@ -29,7 +29,6 @@ import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
 
 const RouterConfig = () => {
-  //   const { user } = useSelector((state) => state);
   return (
     <Routes>
       <Route
