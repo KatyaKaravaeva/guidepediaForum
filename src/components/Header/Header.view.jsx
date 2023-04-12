@@ -4,6 +4,7 @@ import CategoryLogo from "../../assets/images/category_img.svg";
 import CreateArticleLogo from "../../assets/images/create_article_img.svg";
 import PostsLogo from "../../assets/images/posts_img.svg";
 import BookMarksLogo from "../../assets/images/bookmarks_img.svg";
+import Exit from "../../assets/images/exit.svg";
 import Logo from "../../assets/images/logo.svg";
 import styles from "./Header.module.css";
 import {
@@ -68,7 +69,7 @@ const HeaderView = ({exit}) => {
                 </ul>
               </nav>
 
-              <button onClick={()=> exit()}>exit</button>
+              <button className = {styles.header__exit} onClick={()=> exit()}><img src={Exit} /></button>
            
             </>
           ) : null}
