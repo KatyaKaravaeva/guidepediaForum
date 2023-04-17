@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Categories.module.css";
+import style from "../../assets/styles/loading.module.css";
 
 const CategoriesView = ({ categoriesQuery }) => {
   // const categories = [
@@ -11,7 +12,7 @@ const CategoriesView = ({ categoriesQuery }) => {
   console.log(categoriesQuery);
   if (categoriesQuery.isLoading || categoriesQuery.isRefetching) {
     return (
-      <div className={styles.category__loading}>
+      <div className={style.article__loading}>
         <h1>loading...</h1>
       </div>
     );

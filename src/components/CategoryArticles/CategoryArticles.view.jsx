@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import articleStyle from "../../assets/styles/articleList.module.css";
+import style from "../../assets/styles/loading.module.css";
 
 const CategoryArticlesView = ({ categoryArticlesQuery }) => {
   if (categoryArticlesQuery.isLoading || categoryArticlesQuery.isRefetching) {
     return (
       <>
-        <div className={articleStyle.article__loading}>
+        <div className={style.article__loading}>
           <h1>loading...</h1>
         </div>
       </>

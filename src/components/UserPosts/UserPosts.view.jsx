@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "../../assets/styles/articleList.module.css";
+import style from "../../assets/styles/loading.module.css";
 
 const UserPostsView = ({ userPostsQuery }) => {
   if (userPostsQuery.isLoading || userPostsQuery.isRefetching) {
     return (
       <>
-        <div className={styles.article__loading}>
+        <div className={style.article__loading}>
           <h1>loading...</h1>
         </div>
       </>

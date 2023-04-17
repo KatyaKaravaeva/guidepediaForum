@@ -6,6 +6,7 @@ import BookMarkIcon from "../../assets/images/bookmarks_img.svg";
 import BookMarkAdd from "../../assets/images/bookmark_add.svg";
 import BookMarkAdded from "../../assets/images/bookmark_added.svg";
 import { ROOT } from "../../navigation/routes";
+import styleLoading from "../../assets/styles/loading.module.css";
 
 const MainPageView = ({
   handleSubmit,
@@ -21,7 +22,7 @@ const MainPageView = ({
   if (mainPageQuery.isLoading || mainPageQuery.isRefetching) {
     return (
       <>
-        <div className={styles.article__loading}>
+        <div className={styleLoading.article__loading}>
           <h1>loading...</h1>
         </div>
       </>

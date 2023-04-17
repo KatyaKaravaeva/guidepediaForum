@@ -41,7 +41,6 @@ const CreateArticleView = ({
 
   return (
     <div className={styles.create_article__container}>
-      <h1 className={styles.create_article__title}>Новая статья</h1>
       <form onSubmit={(event) => handleSubmit(event)}>
         <div className={styles.create_article_category}>
           {categoriesQuery.isLoading || categoriesQuery.isRefetching ? (
@@ -50,6 +49,7 @@ const CreateArticleView = ({
             </div>
           ) : (
             <div>
+              <h1 className={styles.create_article__title}>Новая статья</h1>
               <label className={styles.categories__label}>Категории</label>
               <select
                 name="article[categories]"

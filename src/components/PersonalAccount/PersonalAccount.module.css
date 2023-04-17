@@ -89,3 +89,31 @@
 .profile__label {
   margin-bottom: 4px;
 }
+
+.subscription__data {
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+}
+.subscription_btn {
+  font-family: Arial, Helvetica, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
+  font-size: 1.2em; /* Изменяем размер текста */
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  padding: 0.3em 0.7em; /* Изменяем отступы */
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: #43b8e8; /* Изменяем цвет фона на голубой */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.subscription_btn:hover {
+  background: #2695c8;
+}
+
+

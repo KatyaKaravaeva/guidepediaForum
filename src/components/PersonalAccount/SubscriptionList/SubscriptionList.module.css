@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 18px;
+  }
+  
+  .subscription_list__get_subscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .subscription {
+    margin-bottom: 5px;
+    padding: 20px;
+    background-color: #94d9f5;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .subscription:hover {
+    background-color: #a3d6f9;
+  }
+  
+  .subscription_header__nav_link {
+    color: #0e3c6d;
+    text-decoration: none;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    margin-left: 28%;
+  }
+  
+  .subscription__span {
+    padding: 5px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    flex-grow: 1;
+  }
+  
+  .profile__picture {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  

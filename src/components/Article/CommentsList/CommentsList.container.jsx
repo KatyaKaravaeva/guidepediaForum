@@ -3,7 +3,7 @@ import { $authHost } from "../../../services/api.service";
 import CommentsListView from "./CommentsList.view";
 import { useRef } from "react";
 
-export const CommentsListContainer = ({ comments }) => {
+export const CommentsListContainer = ({ comments, commentsList, setCommentsList}) => {
   const { id } = useParams();
   const newCommentRef = useRef();
   async function createComment(event) {
@@ -20,6 +20,7 @@ export const CommentsListContainer = ({ comments }) => {
       }
     );
     newCommentRef.current.value = "";
+    setCommentsList((prev)=>[...prev, data]);
   }
   return (
     <CommentsListView

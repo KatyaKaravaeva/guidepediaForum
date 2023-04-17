@@ -8,12 +8,13 @@ export const ArticleContainer = () => {
   const { id } = useParams();
   const [isLike, setLike] = useState(false);
   const [userID, setUserID] = useState();
-  const [searchParams, setSearchParams] = useSearchParams(); 
+  const [searchParams, setSearchParams] = useSearchParams();
   const [commentsShow, setCommentsShow] = useState(
     searchParams.get("comments") === "true" ? true : false
   );
   const [isBookMark, setBookMark] = useState(false);
   const [isSubscribe, subscribeToUser] = useState(false);
+  const [commentsList, setCommentsList] = useState([]);
 
   const commentsQuery = useQuery(
     ["commentsData"],
@@ -21,6 +22,7 @@ export const ArticleContainer = () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/user/article/${id}/comment`
       );
+      setCommentsList(() => [...data]);
       return data;
     },
     {
@@ -93,6 +95,8 @@ export const ArticleContainer = () => {
   );
   return (
     <ArticleView
+      commentsList={commentsList}
+      setCommentsList={setCommentsList}
       commentsQuery={commentsQuery}
       commentsShow={commentsShow}
       setCommentsShow={setCommentsShow}

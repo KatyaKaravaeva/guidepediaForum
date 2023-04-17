@@ -4,8 +4,11 @@ import BlackLike from "../../assets/images/heart.png";
 import RedLike from "../../assets/images/heart_red.png";
 import CommentsList from "./CommentsList";
 import { NavLink } from "react-router-dom";
+import style from "../../assets/styles/loading.module.css";
 
 const ArticleView = ({
+  commentsList,
+  setCommentsList,
   commentsQuery,
   commentsShow,
   setCommentsShow,
@@ -23,7 +26,7 @@ const ArticleView = ({
   if (articleQuery.isLoading || articleQuery.isRefetching) {
     return (
       <>
-        <div className={styles.article__loading}>
+        <div className={style.article__loading}>
           <h1>loading...</h1>
         </div>
       </>
@@ -100,15 +103,17 @@ const ArticleView = ({
         {commentsShow ? (
           <>
             {articleQuery.isLoading ||
-            articleQuery.isRefetching ||
+            articleQuery.isRefetching || 
+            commentsQuery.isLoading ||
+            commentsQuery.isRefetching ||
             !commentsShow ? (
               <>
-                <div className={styles.article__loading}>
+                <div className={style.article__loading}>
                   <h1>loading...</h1>
                 </div>
               </>
             ) : (
-              <CommentsList comments={commentsQuery.data} />
+              <CommentsList comments={commentsList} commentsList ={commentsList} setCommentsList={setCommentsList} />
             )}
           </>
         ) : null}

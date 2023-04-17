@@ -17,7 +17,7 @@ import {
 } from "../../navigation/routes";
 import { useSelector } from "react-redux";
 
-const HeaderView = ({exit}) => {
+const HeaderView = ({ exit }) => {
   const { user } = useSelector((state) => state);
   const location = useLocation();
   console.log(location);
@@ -41,6 +41,7 @@ const HeaderView = ({exit}) => {
                     <NavLink
                       to={CATEGORIES}
                       className={styles.header__nav_link}
+                      title="Категории"
                     >
                       <img src={CategoryLogo} />
                     </NavLink>
@@ -49,6 +50,7 @@ const HeaderView = ({exit}) => {
                     <NavLink
                       to={CREATE_ARTICLE}
                       className={styles.header__nav_link}
+                      title="Редактор"
                     >
                       <img src={CreateArticleLogo} />
                     </NavLink>
@@ -57,20 +59,26 @@ const HeaderView = ({exit}) => {
                     <NavLink
                       to={USER_POSTS}
                       className={styles.header__nav_link}
+                      title="Мои посты"
                     >
                       <img src={PostsLogo} />
                     </NavLink>
                   </li>
                   <li className={styles.header__nav_item}>
-                    <NavLink to={BOOKMARKS} className={styles.header__nav_link}>
+                    <NavLink
+                      to={BOOKMARKS}
+                      className={styles.header__nav_link}
+                      title="Закладки"
+                    >
                       <img src={BookMarksLogo} />
                     </NavLink>
                   </li>
                 </ul>
               </nav>
 
-              <button className = {styles.header__exit} onClick={()=> exit()}><img src={Exit} /></button>
-           
+              <button className={styles.header__exit} onClick={() => exit()}>
+                <img src={Exit} />
+              </button>
             </>
           ) : null}
         </div>

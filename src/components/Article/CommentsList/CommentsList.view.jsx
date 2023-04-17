@@ -3,6 +3,7 @@ import style from "./Comments.module.css";
 const CommentsListView = ({ comments, createComment, newCommentRef }) => {
   return (
     <div className={style.container}>
+      {console.log(comments)}
       <div className={style.comments_list__get_comments}>
         {comments.map((comment) => (
           <div className={style.comment}>

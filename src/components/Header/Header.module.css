@@ -57,5 +57,16 @@
 }
 
 .header__exit{
-  margin-left: 43%;
+  margin-left: 53%;
 }
+
+.header__nav_link[title]:hover::after {
+  content: attr(title); /* Отображение содержимого атрибута title */
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+

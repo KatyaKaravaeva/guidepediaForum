@@ -1,0 +1,11 @@
+.article__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.article__loading h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
