@@ -82,7 +82,7 @@ const MainPageView = ({
               >
                 <img
                   className={style.bookmarkIcon}
-                  src={article.status ? BookMarkAdded : BookMarkAdd}
+                  src={article.statusSave ? BookMarkAdded : BookMarkAdd}
                 />
               </button>
             </div>

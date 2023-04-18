@@ -58,8 +58,8 @@ const CreateArticleView = ({
               >
                 {categoriesQuery.data.map((category) => (
                   <option
-                    key={category.categoryId}
-                    value={category.categoryId}
+                    key={category.id}
+                    value={category.id}
                     className={styles.categoryLink}
                   >
                     {category.name}

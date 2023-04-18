@@ -70,7 +70,7 @@ export const ArticleContainer = () => {
         setLike(() => true);
         data.likes -= 1;
       }
-      setBookMark(() => data.status);
+      setBookMark(() => data.statusSave);
       setUserID(() => data.users.userId);
       return data;
     },

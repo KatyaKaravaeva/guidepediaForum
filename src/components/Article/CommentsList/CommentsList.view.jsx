@@ -8,7 +8,7 @@ const CommentsListView = ({ comments, createComment, newCommentRef }) => {
         {comments.map((comment) => (
           <div className={style.comment}>
             <span className={style.comments__span}>
-              {comment.users.username}
+              {comment.author.username}
             </span>
             <span className={style.comments__span_comment}>
               {comment.comment}

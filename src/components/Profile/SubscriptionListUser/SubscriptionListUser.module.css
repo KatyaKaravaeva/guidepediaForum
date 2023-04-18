@@ -26,8 +26,15 @@
     align-items: center;
   }
   
-  .subscription:hover {
-    background-color: #a3d6f9;
+  .subscription__span {
+    padding: 5px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
   }
   
   .subscription_header__nav_link {
@@ -36,15 +43,7 @@
     font-size: 28px;
     display: flex;
     align-items: center;
-    margin-left: 28%;
-  }
-  
-  .subscription__span {
-    padding: 5px;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-    flex-grow: 1;
+    margin-right: 10px;
   }
   
   .profile__picture {
@@ -53,4 +52,22 @@
     border-radius: 50%;
     margin-right: 10px;
   }
+  
+  .subscription_cancel__button {
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .subscription_cancel__picture {
+    width: 40px;
+    height: 40px;
+  }
+  
   

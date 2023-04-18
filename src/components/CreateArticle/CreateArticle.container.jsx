@@ -16,10 +16,11 @@ export const CreateArticleContainer = () => {
     }
     try {
       const { data } = await $authHost.post("user/article", {
-        categories,
+        categoryName: categories,
         title,
         text: textEditor,
       });
+      console.log("1111", data);
       alert("Запись создана");
       setTextEditor((prev) => "");
       target["article[categories]"].value = "";

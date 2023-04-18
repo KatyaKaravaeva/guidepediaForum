@@ -42,7 +42,7 @@ export const MainPageContainer = () => {
     try {
       const statusBookmark = articles.find(
         (x) => x.articleId === article.articleId
-      ).status;
+      ).statusSave;
       const { data } = await $authHost.post(
         `${process.env.REACT_APP_URL}/user/save/article/${
           article.articleId
@@ -51,7 +51,7 @@ export const MainPageContainer = () => {
       setArticles((prev) =>
         prev.map((x) => {
           if (article.articleId !== x.articleId) return x;
-          x.status = !x.status;
+          x.statusSave = !x.statusSave;
           return x;
         })
       );
